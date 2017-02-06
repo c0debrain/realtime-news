@@ -1,0 +1,19 @@
+{
+  "name": "realtime-news",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.22.0",
+    "meteor-node-stubs": "~0.2.0",
+    "vue": "^2.1.10",
+    "vue-meta": "^0.5.3",
+    "vue-meteor-tracker": "^1.0.4",
+    "vue-router": "^2.2.0"
+  },
+  "devDependencies": {
+    "vue": "^2.0.0-rc.8",
+    "vue-router": "^2.0.0-rc.5"
+  }
+}
