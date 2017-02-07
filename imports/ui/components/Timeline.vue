@@ -3,12 +3,18 @@
 
     <header class="timeline-header">
         <input class="uk-input" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Enter new message" />
+        <button type="button">
+          <span uk-icon="icon: camera"></span>
+        </button>
+        <button type="button">
+            <span uk-icon="icon: image"></span>
+        </button>
     </header>
 
     <div class="timeline-content">
         <ul class="messages-list uk-list">
             <li class="message-item" v-for="message in messages">
-                <h4 contenteditable="true">{{ message.title }}</h4>
+                <h4>{{ message.title }}</h4>
                 <span>{{ message.createdAt }}</span>
                 <button @click="removeMessage(message._id)">
                 <svg class="icon">
@@ -66,13 +72,29 @@ export default {
   max-width 768px
   margin 0 auto
   .timeline-header
+    button
+      border none
+      background none
+      position absolute
+      top 69px
+      right 65px
+      cursor pointer
+      &:hover
+        span
+          color #27AE60
+          transform scale(1.2,1.2)
+      &:last-child
+        right 32px
+    span
+      color #666
+      transition all 0.2s ease-in-out
     input
       width 100%
       box-sizing border-box
       padding 10px
-      border solid 1px #ccc
+      border solid 2px #ccc
       border-radius 3px
-      margin-top 15px
+      margin 0
       font-size 18px
       margin-bottom 10px
       border-radius 4px

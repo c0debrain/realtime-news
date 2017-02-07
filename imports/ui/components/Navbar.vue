@@ -23,7 +23,7 @@ export default {
   margin 0
   text-align center
   background #fff
-  box-shadow 0 5px 15px rgba(0,0,0,.08)
+  box-shadow 0 5px 15px rgba(0,0,0,.05)
   display table
   width 100%
   padding 0
