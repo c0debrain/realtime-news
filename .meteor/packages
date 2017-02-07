@@ -25,4 +25,6 @@ akryum:vue-component
 akryum:vue-router2
 akryum:vue-stylus
 
-msavin:mongol
+accounts-ui@1.1.9
+accounts-password@1.3.3
+alexandesigner:meteor-uikit
