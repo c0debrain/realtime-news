@@ -1,89 +1,126 @@
 <template>
-  <div class="timeline">
-    <h2>Timeline</h2>
+<section class="timeline">
 
-    <input v-model="newPost" @keyup.enter="sendPost" placeholder="Enter new post" />
+    <header class="timeline-header">
+        <input class="uk-input" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Enter new message" />
+    </header>
 
-    <div v-if="!$subReady.posts">
-      Loading...
+    <div class="timeline-content">
+        <ul class="messages-list uk-list">
+            <li class="message-item" v-for="message in messages">
+                <h4 contenteditable="true">{{ message.title }}</h4>
+                <span>{{ message.createdAt }}</span>
+                <button @click="removeMessage(message._id)">
+                <svg class="icon">
+                  <use xlink:href="#close" />
+                </svg>
+            </button>
+            </li>
+        </ul>
     </div>
 
-    <div class="post" v-for="post in posts">
-      <span class="content">{{ post.title }}</span>
-      <button @click="removePost(post._id)">x</button>
+    <div v-if="!$subReady.messages">
+        Loading...
     </div>
-  </div>
+
+</section>
 </template>
 
 <script>
-
-import { Posts } from '../../api/collections.js';
+import {
+    Messages
+} from '../../api/messages/messages.js';
 
 export default {
-  name: 'timeline',
-  data: () => ({
-    newPost: '',
-    posts: [],
-  }),
-  meteor: {
-    subscribe: {
-      'posts': [],
+    name: 'timeline',
+    data: () => ({
+        newMessage: '',
+        messages: [],
+    }),
+    meteor: {
+        subscribe: {
+            'messages': [],
+        },
+        messages() {
+            return Messages.find({}, {
+                sort: {
+                    createdAt: -1
+                },
+            });
+        },
     },
-    posts() {
-      return Posts.find({}, {
-        sort: { date: -1 },
-      });
+    methods: {
+        sendMessage() {
+            Meteor.call('addMessage', this.newMessage);
+            this.newMessage = '';
+        },
+        removeMessage(_id) {
+            Meteor.call('removeMessage', _id);
+        },
     },
-  },
-  methods: {
-    sendPost() {
-      Meteor.call('addPost', this.newPost);
-      this.newPost = '';
-    },
-    removePost(_id) {
-      Meteor.call('removePost', _id);
-    },
-  },
 };
 </script>
 
 <style scoped lang="stylus">
 .timeline
   max-width 768px
-  margin 40px auto
-h2
-  text-align left
-  font-size 32px
-  color #212121
+  margin 0 auto
+  .timeline-header
+    input
+      width 100%
+      box-sizing border-box
+      padding 10px
+      border solid 1px #ccc
+      border-radius 3px
+      margin-top 15px
+      font-size 18px
+      margin-bottom 10px
+      border-radius 4px
+      color #27AE60
+      &:hover,  &:active, &:focus
+        border-color #27AE60
+        background #fff
+        box-shadow 0 0 2px 1px rgba(35, 145, 82, 0.37)
 
-input
-  width 100%
-  box-sizing border-box
-  padding 10px 22px
-  border solid 1px #ccc
-  border-radius 3px
-  margin-top 15px
-  font-size 24px
-  margin-bottom 10px
-  border-radius 4px
-  color #27AE60
-  &:hover,  &:active, &:focus
-    border-color #27AE60
-    background #f8f8f8
-.post
-  margin 4px 2px
-  display flex
-  flex-direction row
-  color #666
-  margin-top 5px
-  padding-top 5px
-  button
-    background #f4f4f4
-    color #212121
-    border 1px solid #ccc
-    border-radius 3px
-    float right
-   .content
-      flex auto 1 1
+   .timeline-content
+     .messages-list
+       margin 4px 2px
+       color #666
+       margin 0
+       padding 0
+       .message-item
+         position relative
+         margin 0
+         padding 15px 0
+         transition all 0.2s ease-in-out
+         border-radius 3px
+         border-bottom 1px solid #e5e5e5
+         &:hover
+           background #f8f8f8
+           button
+             opacity 1
+         h4
+           margin-bottom 5px
+         button
+           border none
+           border-radius 3px
+           position absolute
+           right 0
+           top 20px
+           width 22px
+           height 22px
+           border-radius 50%
+           background rgb(236, 88, 88)
+           color #fff
+           padding 0
+           opacity 0
+           transition all 0.2s ease-in-out
+           cursor pointer
+           svg
+            width 22px
+            height 22px
+            fill #fff!important
+          .content
+             flex auto 1 1
 
 </style>

@@ -2,7 +2,7 @@
 import {Meteor} from 'meteor/meteor';
 import Vue from 'vue';
 import router from '/imports/routes';
-
+  
 // App layout
 import App from '/imports/ui/App.vue';
 
