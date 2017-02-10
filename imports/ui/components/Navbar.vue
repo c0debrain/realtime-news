@@ -2,7 +2,7 @@
 <header class="navbar" :class="{ 'hide': $route.name==='home'}">
     <h1 class="logo">
       <router-link to="/">
-        <img src="/images/logo.svg" height="44" />
+        <img src="/images/logo-white.svg" height="44" />
       </router-link>
     </h1>
 </header>
@@ -22,8 +22,10 @@ export default {
 .navbar
   margin 0
   text-align center
-  background #fff
-  box-shadow 0 5px 15px rgba(0,0,0,.05)
+  background #ff8e01;
+  background -moz-linear-gradient(left, #ff8e01 0%, #ff3b32 100%)
+  background -webkit-linear-gradient(left, #ff8e01 0%,#ff3b32 100%)
+  background linear-gradient(to right, #ff8e01 0%,#ff3b32 100%)
   display table
   width 100%
   padding 0
