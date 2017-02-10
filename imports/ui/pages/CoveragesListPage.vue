@@ -64,7 +64,7 @@
         &:hover
           text-decoration none
           .event-title
-            color #27AE60
+            color #FF6C15
           .event-thumb
             img
               transform scale(1.1,1.1)
@@ -79,8 +79,9 @@
       background #f8f8f8
       font-size 12px
       color #212121
+      font-family "Proxima Nova Soft"
     .event-live
-      background #27AE60
+      background #FF6C15
       color #fff
     .event-end
       background rgb(236, 88, 88)
@@ -98,4 +99,5 @@
       padding 10px
       font-size 18px
       transition all 0.2s ease-in-out
+      font-family "Proxima Nova Soft"
 </style>

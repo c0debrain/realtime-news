@@ -45,6 +45,6 @@ export default {
       background #fff
       border-radius 28px
       &:hover
-        border-color #27AE60
-        color #27AE60
+        border-color #FF6C15
+        color #FF6C15
 </style>

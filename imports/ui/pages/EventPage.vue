@@ -1,9 +1,6 @@
 <template>
   <div class="event-page">
     <header class="event-header">
-        <h2 class="event-name">
-          <router-link to="/coverages/event">Brasileirão 2016</router-link>
-        </h2>
         <div class="event-box-stream">
           <div class="event-content uk-flex uk-flex-center uk-flex-wrap-around hide">
             <div class="uk-width-1-2 uk-card uk-card-body uk-card-small">
@@ -34,10 +31,16 @@
                     </li>
                 </ul>
             </div>
+
           </div>
-          <figure class="event-cover-image">
+          <div class="event-cover-image">
+              <div class="content">
+                <h2 class="event-name">
+                  <router-link to="/coverages/event">Brasileirão 2016</router-link>
+                </h2>
+              </div>
               <img class="image-cover" src="/images/cover.png" width="100%" />
-          </figure>
+          </div>
         </div>
     </header>
     <div class="event-content uk-flex uk-flex-center uk-flex-wrap-around uk-background-muted uk-height-medium">
@@ -87,7 +90,7 @@ export default {
       h3
         margin 0
         font-size 15px
-        color #27ae60
+        color #FF6C15
       span
         font-size 10px
         color #666
@@ -96,6 +99,43 @@ export default {
 
   .event-cover-image
     max-height 220px
+    position relative
+    &:after
+      position absolute
+      left 0
+      bottom 0
+      width 100%
+      height 180px
+      content ""
+      z-index 9
+      background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.82) 100%);
+      background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.82) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.82) 100%);
+    .content
+      position relative
+      width 1180px
+      height 220px
+      position absolute
+      left 50%
+      margin-left -590px!important
+    .event-name
+      position absolute
+      left 0
+      bottom 0
+      color #fff
+      z-index 10
+      font-size 52px
+      text-shadow 1px 1px 2px rgba(0,0,0,.8)
+      font-weight 100
+      text-align left
+      padding 20px
+      letter-spacing -0.06em
+      line-height 46px
+      a
+        color #fff
+        font-family "Proxima Nova Soft"
+        &:hover
+          color #fff
   .event-video-stream
     margin 0 auto
     display table
@@ -116,17 +156,6 @@ export default {
     margin-bottom 30px
     position relative
     z-index 990
-  .event-name
-    font-size 18px
-    font-weight 300
-    text-align center
-    text-transform uppercase
-    line-height 46px
-    display block
-    a
-      color #27AE60
-      &:hover
-        color #27AE60
   .timeline-container
     padding-top 0
     h2

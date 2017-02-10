@@ -81,7 +81,7 @@ export default {
       cursor pointer
       &:hover
         span
-          color #27AE60
+          color #FF6C15
           transform scale(1.2,1.2)
       &:last-child
         right 32px
@@ -98,9 +98,9 @@ export default {
       font-size 18px
       margin-bottom 10px
       border-radius 4px
-      color #27AE60
+      color #FF6C15
       &:hover,  &:active, &:focus
-        border-color #27AE60
+        border-color #FF6C15
         background #fff
         box-shadow 0 0 2px 1px rgba(35, 145, 82, 0.37)
 
