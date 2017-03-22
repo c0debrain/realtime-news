@@ -1,35 +1,44 @@
 <template>
-<section class="timeline">
+  <section class="timeline">
 
-    <header class="timeline-header">
-        <input class="uk-input" v-model="newMessage" @keyup.enter="sendMessage" placeholder="Enter new message" />
-        <button type="button">
-          <span uk-icon="icon: camera"></span>
-        </button>
-        <button type="button">
-            <span uk-icon="icon: image"></span>
-        </button>
-    </header>
+      <header class="timeline-header">
+        <div class="uk-card uk-card-default uk-card-body">
+          <transition name="fade">
+            <div v-if="profile">
+              Perfil
+            </div>
+          </transition>
+          <input class="uk-input" v-model="newMessage" @focus="showProfile" placeholder="Share a news, photo or video" />
+          <div class="timeline-actions">
 
-    <div class="timeline-content">
-        <ul class="messages-list uk-list">
-            <li class="message-item" v-for="message in messages">
-                <h4>{{ message.title }}</h4>
-                <span>{{ message.createdAt }}</span>
-                <button @click="removeMessage(message._id)">
-                <svg class="icon">
-                  <use xlink:href="#close" />
-                </svg>
+            <button type="button" class="button-icon" @click.prevent="showProfile">
+              <span uk-icon="icon: camera;"></span>
             </button>
-            </li>
-        </ul>
-    </div>
 
-    <div v-if="!$subReady.messages">
-        Loading...
-    </div>
+            <button type="submit" @click.prevent="sendMessage" class="uk-button uk-button-primary button-send">publicar</button>
+          </div>
+        </div>
+      </header>
 
-</section>
+      <div class="timeline-content">
+          <ul class="messages-list uk-list">
+              <li class="message-item" v-for="message in messages">
+                  <h4>{{ message.title }}</h4>
+                  <span>{{ message.createdAt }}</span>
+                  <button @click="removeMessage(message._id)">
+                  <svg class="icon">
+                    <use xlink:href="#close" />
+                  </svg>
+              </button>
+              </li>
+          </ul>
+      </div>
+
+      <div v-if="!$subReady.messages">
+          Loading...
+      </div>
+
+  </section>
 </template>
 
 <script>
@@ -42,6 +51,7 @@ export default {
     data: () => ({
         newMessage: '',
         messages: [],
+        profile: false
     }),
     meteor: {
         subscribe: {
@@ -56,6 +66,9 @@ export default {
         },
     },
     methods: {
+        showProfile() {
+          console.log(this.profile);
+        },
         sendMessage() {
             Meteor.call('addMessage', this.newMessage);
             this.newMessage = '';
@@ -69,40 +82,51 @@ export default {
 
 <style scoped lang="stylus">
 .timeline
-  max-width 768px
-  margin 0 auto
+  width 100%
   .timeline-header
-    button
+    cursor pointer
+    .uk-card
+      padding 10px
+      border-radius 3px
+      transition all 0.2s ease-in-out
+    .timeline-actions
+      border-top 1px solid #e5e5e5
+      padding-top 10px
+    .button-icon
       border none
       background none
-      position absolute
-      top 69px
-      right 65px
+      float left
       cursor pointer
+      font-size 15px
+      color #666
+      padding 5px
+      padding 6px 12px
+      margin 3px 0px
+      span
+        transform scale(1.2,1.2)
       &:hover
+        color #FF6C15
         span
           color #FF6C15
-          transform scale(1.2,1.2)
+          transform scale(1.4,1.4)
       &:last-child
         right 32px
+    .button-send
+      float right
+      border-radius 3px
     span
       color #666
       transition all 0.2s ease-in-out
     input
       width 100%
       box-sizing border-box
-      padding 10px
-      border solid 2px #ccc
-      border-radius 3px
+      padding 10px 0
+      border none
       margin 0
       font-size 18px
       margin-bottom 10px
-      border-radius 4px
-      color #FF6C15
-      &:hover,  &:active, &:focus
-        border-color #FF6C15
-        background #fff
-        box-shadow 0 0 2px 1px rgba(35, 145, 82, 0.37)
+      color #212121
+      cursor pointer
 
    .timeline-content
      .messages-list

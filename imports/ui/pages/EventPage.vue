@@ -48,9 +48,6 @@
             <h2 class="uk-heading-line uk-text-left"><span>Timeline</span></h2>
             <timeline></timeline>
         </div>
-        <div class="uk-width-1-5 uk-card uk-card-default uk-card-body uk-card-small uk-margin-left">
-            Sidebar
-        </div>
     </div>
   </div>
 </template>
@@ -113,11 +110,11 @@ export default {
       background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.82) 100%);
     .content
       position relative
-      width 1180px
+      width 960px
       height 220px
       position absolute
       left 50%
-      margin-left -590px!important
+      margin-left -490px !important
     .event-name
       position absolute
       left 0
