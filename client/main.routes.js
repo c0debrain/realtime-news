@@ -12,12 +12,12 @@ export default [
     // Nested routes
     children: [
       {
-        path: '/',
+        path: '/coverages',
         name: 'coverages-list',
         component: '/imports/ui/pages/CoveragesListPage.vue',
       },
       {
-        path: 'coverages-detail',
+        path: '/coverages/detail',
         name: 'coverages-detail',
         component: '/imports/ui/pages/CoveragesDetailPage.vue',
       },
@@ -36,24 +36,24 @@ export default [
     // Nested routes
     children: [
       {
-        path: '/',
+        path: '/login',
         name: 'login',
-        component: '/imports/ui/components/Login.vue',
+        component: '/imports/ui/modules/Login.vue',
       },
       {
-        path: 'register ',
-        name: 'register ',
-        component: '/imports/ui/components/Register.vue',
+        path: '/register',
+        name: 'register',
+        component: '/imports/ui/modules/Register.vue',
       },
       {
-        path: 'forgot-password',
+        path: '/forgot-password',
         name: 'forgot-password',
-        component: '/imports/ui/components/ForgotPassword.vue',
+        component: '/imports/ui/modules/ForgotPassword.vue',
       },
       {
-        path: 'new-password',
+        path: '/new-password',
         name: 'new-password',
-        component: '/imports/ui/components/NewPassword.vue',
+        component: '/imports/ui/modules/NewPassword.vue',
       },
     ],
   },
