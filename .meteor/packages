@@ -29,3 +29,7 @@ accounts-ui@1.1.9
 accounts-password@1.3.4
 
 alexandesigner:meteor-uikit
+
+aldeed:simple-schema@1.5.3
+aldeed:collection2@2.9.0
+mdg:validated-method
