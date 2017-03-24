@@ -72,14 +72,8 @@ input
 form
   margin 12px 0
 
-hr
-  border none
-  height 1px
-  background #FF6C15
-
 input
     font-size 12pt
-
 
 .thread .actions
   padding 0 12px
@@ -87,15 +81,102 @@ input
 .post .action
   float right
 
-
 .hide
   display none!important
 
 .full-width
   width 100%
 
-
 .fade-enter-active, .fade-leave-active
   transition opacity .5s
 .fade-enter, .fade-leave-to
   opacity 0
+
+.uk-divider-icon
+  &:before
+    left 0!important
+
+.uk-input:focus, .uk-select:focus, .uk-textarea:focus
+  border-color #FF6C15!important
+
+.uk-button-primary, .uk-button-default
+  border-radius 3px
+
+.uk-button-primary
+  background #FF6C15!important
+  &:hover
+    color #fff!important
+
+// Auth
+.auth
+  footer.uk-margin
+    margin-bottom 0
+  .form-model
+    margin 0
+  .card, input
+    border-radius 4px
+  .uk-article-title
+    margin-top 20px
+    span
+      color #323232
+
+
+.navbar
+  background #ff8e01!important;
+  background -moz-linear-gradient(left, #ff8e01 0%, #ff3b32 100%)!important
+  background -webkit-linear-gradient(left, #ff8e01 0%,#ff3b32 100%)!important
+  background linear-gradient(to right, #ff8e01 0%,#ff3b32 100%)!important
+  min-height 54px
+  .uk-navbar-left
+    .back-to-home
+      cursor pointer
+      color #fff
+  .uk-navbar-center
+    top 5px
+    width 170px;
+    margin-right -85px
+    left auto!important
+    transform translate(0, 0)!important
+    .logo
+      a
+        display block
+      img
+        display table
+      color white
+
+.home-page
+  display table
+  width 100%
+  height 100%
+  position relative
+  padding 40px 0
+  .inner
+    display table-cell
+    vertical-align middle
+  .logo
+    display table
+    margin 20px auto
+  .buttons
+    display table
+    width 100%
+    position relative
+    text-align center
+    a
+      line-height 38px
+      display inline-block
+      background #fff
+      padding 0 18px
+      margin 0 5px
+      &:hover
+        border-color #FF6C15
+        color #FF6C15
+
+
+.button-confirm
+  float right
+  border-radius 3px
+  background #32d296
+  color #fff!important
+  &:hover
+    background #32d296
+    color #fff!important
