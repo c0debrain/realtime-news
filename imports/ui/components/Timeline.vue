@@ -15,7 +15,7 @@
               <span uk-icon="icon: camera;"></span>
             </button>
 
-            <button type="submit" @click.prevent="sendMessage" class="uk-button uk-button-primary button-send">publicar</button>
+            <button type="submit" @click.prevent="sendMessage" class="uk-button button-confirm">publicar</button>
           </div>
         </div>
       </header>
@@ -111,9 +111,8 @@ export default {
           transform scale(1.4,1.4)
       &:last-child
         right 32px
-    .button-send
+    .button-confirm
       float right
-      border-radius 3px
     span
       color #666
       transition all 0.2s ease-in-out

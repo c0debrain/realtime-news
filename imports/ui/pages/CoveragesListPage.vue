@@ -81,10 +81,10 @@
       color #212121
       font-family "Proxima Nova Soft"
     .event-live
-      background #FF6C15
+      background #32d296
       color #fff
     .event-end
-      background rgb(236, 88, 88)
+      background #f0506e
       color #fff
     .event-thumb
       overflow hidden

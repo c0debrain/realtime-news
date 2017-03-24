@@ -1,10 +1,16 @@
 <template>
-<header class="navbar" :class="{ 'hide': $route.name==='home'}">
-    <h1 class="logo">
-      <router-link to="/">
-        <img src="/images/logo-white.svg" height="44" />
-      </router-link>
-    </h1>
+<header class="uk-navbar uk-navbar-container navbar" :class="{ 'hide': $route.name === 'home'}">
+    <div class="uk-navbar-left">
+      <span class="back-to-home" uk-icon="icon: arrow-left;ratio: 2" @click="goBack"></span>
+    </div>
+    <div class="uk-navbar-center">
+      <h1 class="logo">
+        <img src="/images/logo-white.svg" width="170" height="44" />
+      </h1>
+    </div>
+    <!-- <div class="uk-navbar-right">
+      ...
+    </div> -->
 </header>
 </template>
 
@@ -14,37 +20,11 @@ export default {
         return {
             hideBar: true
         }
+    },
+    methods: {
+      goBack() {
+        history.back()
+      }
     }
 }
 </script>
-
-<style scoped lang="stylus">
-.navbar
-  margin 0
-  text-align center
-  background #ff8e01;
-  background -moz-linear-gradient(left, #ff8e01 0%, #ff3b32 100%)
-  background -webkit-linear-gradient(left, #ff8e01 0%,#ff3b32 100%)
-  background linear-gradient(to right, #ff8e01 0%,#ff3b32 100%)
-  display table
-  width 100%
-  padding 0
-  .logo
-    display table
-    margin 5px auto
-    line-height 0
-    img
-      display block
-      height 44px
-  .menu
-    float right
-    margin 4px 0
-    a
-      display inline-block
-      padding 6px
-      margin 0 6px
-      border-radius 3px
-    a.v-link-active
-      background #40b883
-      color white
-</style>

@@ -36,7 +36,7 @@
           <div class="event-cover-image">
               <div class="content">
                 <h2 class="event-name">
-                  <router-link to="/coverages/event">Brasileirão 2016</router-link>
+                  <router-link to="/coverages/event"></router-link>
                 </h2>
               </div>
               <img class="image-cover" src="/images/cover.png" width="100%" />
@@ -65,7 +65,7 @@ export default {
     data: { }
   },
   components: {
-    Timeline,
+    Timeline
   }
 };
 </script>
