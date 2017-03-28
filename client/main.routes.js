@@ -1,3 +1,5 @@
+import isMeteorUser from '/imports/api/helpers/isMeteorUser';
+
 export default [
   {
     path: '/',
@@ -9,12 +11,18 @@ export default [
     path: '/coverages',
     component: '/imports/ui/pages/CoveragesPage.vue',
     redirect: { name: 'coverages-list' },
+    beforeEnter: (to, from, next) => {
+      isMeteorUser().then(response => {
+        // if true, continue, else redirect to Login page
+        response ? next() : next({name: 'login'})
+      })
+    },
     // Nested routes
     children: [
       {
         path: '/coverages',
         name: 'coverages-list',
-        component: '/imports/ui/pages/CoveragesListPage.vue',
+        component: '/imports/ui/pages/CoveragesListPage.vue'
       },
       {
         path: '/coverages/detail',
