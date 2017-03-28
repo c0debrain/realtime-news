@@ -18,11 +18,16 @@
 </template>
 
 <script>
+
+// const user = Meteor.users.findOne(userId);
+// const fbAccessToken = user.services.facebook.accessToken;
+
+console.log(Meteor.users.findOne());
+
 export default {
-  data() {
-    return {
-      buttonLabel: 'Click me!',
-    }
-  }
+  data: () => ({
+    buttonLabel: 'Click me!'
+  }),
 };
+
 </script>
