@@ -101,3 +101,12 @@
       transition all 0.2s ease-in-out
       font-family "Proxima Nova Soft"
 </style>
+
+<script>
+  export default {
+    name: 'coverages-list',
+    data: () => ({
+      user: Meteor.user()
+    }),
+  }
+</script>

@@ -8,6 +8,14 @@
 
     <div class="uk-flex uk-flex-center">
         <div class="uk-card uk-card-default uk-card-body card">
+
+          <button type="button" class="uk-button button-facebook full-width" @click="handleFacebook">
+            <i class="uk-margin-small-left" uk-icon="icon: facebook"></i>
+            <span>Login with facebook</span>
+          </button>
+
+          <hr class="uk-divider-icon">
+
           <form class="form-model">
 
               <div class="uk-margin">
@@ -57,7 +65,20 @@
 								this.$router.push({ name: 'home' });
 						}
 				});
+      },
+      handleFacebook() {
+        Meteor.loginWithFacebook({
+          requestPermissions: ['user_friends', 'public_profile', 'email']
+        }, (err) => {
+          if (err) {
+            // handle error
+            Meteor.Error("Facebook login failed");
+          } else {
+            // successful login!
+            this.$router.push({ name: 'coverages-list' });
+          }
+        });
       }
-    }
+    },
   }
 </script>

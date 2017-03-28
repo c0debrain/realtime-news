@@ -11,7 +11,7 @@
 
           <button type="button" class="uk-button button-facebook full-width" @click="handleFacebook">
             <i class="uk-margin-small-left" uk-icon="icon: facebook"></i>
-            <span>Entrar usando facebook</span>
+            <span>Register with facebook</span>
           </button>
 
           <hr class="uk-divider-icon">
@@ -21,7 +21,7 @@
               <div class="uk-margin">
                 <div class="avatar-upload uk-placeholder uk-text-center">
                   <span class="icon" uk-icon="icon: cloud-upload"></span>
-                  <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+                  <span class="uk-text-middle">Attach pictures by dropping them here or</span>
                   <div uk-form-custom>
                       <input type="file" multiple>
                       <span class="uk-link">selecting one</span>
