@@ -27,7 +27,7 @@
 
               <footer class="uk-margin">
                 <button class="uk-button button-confirm full-width">
-                  New Password
+                  Confirm New Password
                 </button>
               </footer>
 

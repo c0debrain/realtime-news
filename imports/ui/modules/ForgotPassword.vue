@@ -13,14 +13,14 @@
 
               <div class="uk-margin">
                   <div class="uk-inline">
-                      <span class="uk-form-icon" uk-icon="icon: user"></span>
+                      <span class="uk-form-icon" uk-icon="icon: mail"></span>
                       <input class="uk-input" type="text" placeholder="Your Email">
                   </div>
               </div>
 
               <footer class="uk-margin">
                 <button class="uk-button button-confirm full-width">
-                  Send
+                  Reset Password
                 </button>
               </footer>
 
