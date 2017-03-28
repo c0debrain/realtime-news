@@ -4,4 +4,4 @@ install:
 	meteor update --all-packages
 	meteor npm i
 run:
-	meteor
+	meteor --settings settings.json

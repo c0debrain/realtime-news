@@ -3,12 +3,14 @@ import {Meteor} from 'meteor/meteor';
 import Vue from 'vue';
 import routerFactory from '/imports/routes';
 
+import FacebookOAuthInit from '/imports/facebook';
+
 // App layout
 import App from '/imports/ui/App.vue';
 
 // App start
 Meteor.startup(() => {
-  // Start the router
+  FacebookOAuthInit();
   new Vue({
     router: routerFactory.create(),
     render: h => h(App),
