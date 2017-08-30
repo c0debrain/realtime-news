@@ -1,2 +1,1 @@
-# Realtime News Coverage
-> News in Real Time develop with Meteor + Vue
+![Realtime News Coverage - News in Real Time develop with Meteor + Vue](assets/logo.svg)
