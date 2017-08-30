@@ -1,4 +1,7 @@
 import { register } from 'vue-supply'
 
-import Items from './Items'
-register('Items', Items)
+import Events from './Events'
+register('Events', Events)
+
+import Coverages from './Coverages'
+register('Coverages', Coverages)

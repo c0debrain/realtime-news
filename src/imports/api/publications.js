@@ -1,13 +1,29 @@
 import { Meteor } from 'meteor/meteor'
-import { Notes, Items } from './collections'
 
-Meteor.publish('notes', function (limit) {
-  return Notes.find({}, {
-    sort: { created: -1 },
-    limit,
+// Collections
+import { 
+  Events, 
+  Coverages, 
+  Messages 
+} from './collections'
+
+// Events
+Meteor.publish('events', function (limit) {
+  return Events.find({}, {
+    sort: { created: -1 }
   })
 })
 
-Meteor.publish('items', function () {
-  return Items.find({})
+// Coverages
+Meteor.publish('coverages', function () {
+  return Coverages.find({}, {
+    sort: { created: -1 }
+  })
+})
+
+// Messages
+Meteor.publish('messages', function () {
+  return Messages.find({}, {
+    sort: { created: -1 }
+  })
 })

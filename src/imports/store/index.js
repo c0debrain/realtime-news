@@ -1,10 +1,9 @@
-
-import layout from './layout'
-import items from './items'
+import events from './events'
+import coverages from './coverages'
 
 export default {
   modules: {
-    layout,
-    items,
+    events,
+    coverages
   },
 }
