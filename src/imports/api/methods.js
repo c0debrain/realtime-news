@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { SimpleSchema } from 'meteor/aldeed:simple-schema'
-import { Notes } from './collections'
+import { Notes, Items } from './collections'
 
 Meteor.methods({
   ['notes.add'] (args) {
@@ -24,5 +24,18 @@ Meteor.methods({
     const { _id } = args
 
     Notes.remove(_id)
+  },
+
+  ['items.add'] (args) {
+    new SimpleSchema({
+      name: { type: String },
+    }).validate(args)
+
+    const { name } = args
+
+    Items.insert({
+      name,
+      created: new Date(),
+    })
   },
 })
