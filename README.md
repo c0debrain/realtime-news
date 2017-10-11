@@ -2,16 +2,5 @@
 
 > Realtime News Coverage - News in Real Time develop with Meteor + Vue
 
-## Install
-
-```bash
-$ make install
-```
-
-##### Install all packages in npm
-
-## Install
-
-```bash
-$ make dev
-```
+### See repository
+[Application](https://github.com/alexandesigner/realtime-news/tree/master/app) - [Documentation](https://github.com/alexandesigner/realtime-news/tree/master/docs)
