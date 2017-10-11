@@ -1,9 +1,7 @@
-import events from './events'
-import coverages from './coverages'
+import documents from './documents'
 
 export default {
   modules: {
-    events,
-    coverages
+    documents
   },
 }
