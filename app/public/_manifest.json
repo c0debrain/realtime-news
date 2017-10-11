@@ -1,10 +1,10 @@
 {
-  "name": "Lets",
-  "short_name": "Lets",
-  "description": "A minimalist boilerplate for products",
+  "name": "Realtime",
+  "short_name": "Realtime",
+  "description": "Coberturas de notícias em tempo real",
   "orientation": "portrait",
   "background_color": "#FFF",
-  "theme_color": "#FFF",
+  "theme_color": "#C2382E",
   "display": "standalone",
   "start_url": "./",
   "icons": [
