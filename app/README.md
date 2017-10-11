@@ -1,4 +1,4 @@
-<a href="https://alexandesigner.github.io/lets" target="_blank"><img src="https://github.com/alexandesigner/lets/blob/master/arts/icon.png" height="120" /></a>
+<a href="https://alexandesigner.github.io/realtime-news" target="_blank"><img src="https://github.com/alexandesigner/realtime-news/blob/master/assets/logo.svg" height="96" /></a>
 
 In this project we are using a ui layer [Vue with Meteor](https://github.com/Akryum/vue-meteor) and Build data in the [Meteor with MongoDB](https://www.meteor.com/)
 
@@ -46,7 +46,7 @@ $ make deploy
 
 ## Documentantion
 
-[Read the Documentation](https://lets.alexandesigner.com.br/docs)
+[Read the Documentation](https://alexandesigner.github.io/realtime-news#docs)
 
 ## Versioning
 
@@ -54,4 +54,4 @@ To keep better organization of releases we follow the [Semantic Versioning 2.0.0
 
 ## Contributors
 
-Check the [issues](https://github.com/alexandesigner/lets/issues) that are open and if you have a new idea open an issue, you will be welcome to discuss an improvement, bug or critical
+Check the [issues](https://github.com/alexandesigner/realtime-news/issues) that are open and if you have a new idea open an issue, you will be welcome to discuss an improvement, bug or critical
