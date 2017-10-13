@@ -3,8 +3,8 @@ import Vue from 'vue'
 import isUser from './modules/is-user'
 
 import NotFound from './ui/pages/NotFound/NotFound.vue'
-import Documents from './ui/pages/Documents/Documents.vue'
-import DocumentDetails from './ui/pages/Documents/DocumentsDetails.vue'
+import Events from './ui/pages/Events/Events.vue'
+import EventDetails from './ui/pages/Events/EventDetails.vue'
 import Home from './ui/pages/Home/Home.vue'
 import Auth from './ui/layout/Auth.vue'
 import Login from './ui/pages/Auth/Login.vue'
@@ -14,9 +14,9 @@ import ResetPassword from './ui/pages/Auth/ResetPassword.vue'
 
 import Dashboard from './ui/layout/Dashboard.vue'
 import DashboardTimeline from './ui/pages/Dashboard/Timeline/Timeline.vue'
-import DashboardDocuments from './ui/pages/Dashboard/Documents/Documents.vue'
-import DashboardDocumentsNew from './ui/pages/Dashboard/Documents/DocumentsNew.vue'
-import DashboardDocumentsEdit from './ui/pages/Dashboard/Documents/DocumentsEdit.vue'
+import DashboardEvents from './ui/pages/Dashboard/Events/Events.vue'
+import DashboardEventsNew from './ui/pages/Dashboard/Events/EventsNew.vue'
+import DashboardEventsEdit from './ui/pages/Dashboard/Events/EventsEdit.vue'
 import DashboardUsers from './ui/pages/Dashboard/Users/Users.vue'
 import DashboardUsersEdit from './ui/pages/Dashboard/Users/UsersEdit.vue'
 
@@ -32,22 +32,22 @@ export default [
     component: Home
   },
   {
-    path: '/documents',
-    name: 'app-documents',
-    component: Documents,
+    path: '/eventos',
+    name: 'app-events',
+    component: Events,
     beforeEnter: (to, from, next) => {
       isUser().then(response => {
-        response ? next() : next({name: 'login'})
+        response ? next() : next({name: 'auth-login'})
       })
     }
   },
   {
-    path: '/documents/:documentId',
-    name: 'app-documents-details',
-    component: DocumentDetails,
+    path: '/eventos/:eventId',
+    name: 'app-event-details',
+    component: EventDetails,
     beforeEnter: (to, from, next) => {
       isUser().then(response => {
-        response ? next() : next({name: 'login'})
+        response ? next() : next({name: 'auth-login'})
       })
     }
   },
@@ -55,26 +55,26 @@ export default [
   {
     path: '/login',
     component: Auth,
-    redirect: { name: 'login' },
+    redirect: { name: 'auth-login' },
     children: [
       {
         path: '/login',
-        name: 'login',
+        name: 'auth-login',
         component: Login
       },
       {
-        path: '/register',
-        name: 'register',
+        path: '/cadastro',
+        name: 'auth-register',
         component: Register
       },
       {
-        path: '/forgot-password',
-        name: 'forgot-password',
+        path: '/recuperar-senha',
+        name: 'auth-forgot-password',
         component: ForgotPassword
       },
       {
-        path: '/reset-password/:token',
-        name: 'reset-password',
+        path: '/nova-senha/:token',
+        name: 'auth-reset-password',
         component: ResetPassword
       }
     ]
@@ -82,10 +82,10 @@ export default [
   {
     path: '/timeline',
     component: Dashboard,
-    redirect: { name: 'dashboard' },
+    redirect: { name: 'dashboard-timeline' },
     beforeEnter: (to, from, next) => {
       isUser().then(response => {
-        response ? next() : next({name: 'login'})
+        response ? next() : next({name: 'auth-login'})
       })
     },
     children: [
@@ -95,27 +95,27 @@ export default [
         component: DashboardTimeline
       },
       {
-        path: '/dashboard/documents',
-        name: 'dashboard-documents',
-        component: DashboardDocuments
+        path: '/dashboard/eventos',
+        name: 'dashboard-events',
+        component: DashboardEvents
       },
       {
-        path: '/dashboard/documents/new',
-        name: 'dashboard-documents-new',
-        component: DashboardDocumentsNew
+        path: '/dashboard/eventos/novo',
+        name: 'dashboard-events-new',
+        component: DashboardEventsNew
       },
       {
-        path: '/dashboard/documents/:documentId/edit',
-        name: 'dashboard-documents-edit',
-        component: DashboardDocumentsEdit
+        path: '/dashboard/eventos/:eventoId/editar',
+        name: 'dashboard-events-edit',
+        component: DashboardEventsEdit
       },
       {
-        path: '/dashboard/users',
+        path: '/dashboard/usuarios',
         name: 'dashboard-users',
         component: DashboardUsers
       },
       {
-        path: '/dashboard/users/:userId/edit',
+        path: '/dashboard/usuarios/:userId/editar',
         name: 'dashboard-users-edit',
         component: DashboardUsersEdit
       }

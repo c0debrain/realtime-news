@@ -1,4 +1,4 @@
 import { register } from 'vue-supply'
 
-import Documents from './Documents'
-register('Documents', Documents)
+import Events from './Events'
+register('Events', Events)

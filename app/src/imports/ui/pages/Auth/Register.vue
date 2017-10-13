@@ -4,7 +4,7 @@
       <el-card class="auth-layout_card card">
         <header class="auth-layout_card-header card-header">
           <img class="logo" src="/images/icon.svg" width="60" height="60" alt="Logo" />
-          <h2>Create Account</h2>
+          <h2>Criar conta</h2>
         </header>
         <span class="divider"></span>
         <el-form
@@ -16,7 +16,7 @@
             <el-col :span="12">
               <el-form-item
                 prop="firstName"
-                label="First Name">
+                label="Primeiro nome">
                 <el-input
                   v-model="registerForm.firstName"
                   auto-complete="off"></el-input>
@@ -25,7 +25,7 @@
             <el-col :span="12">
               <el-form-item
                 prop="lastName"
-                label="Last Name">
+                label="Sobrenome">
                 <el-input
                   v-model="registerForm.lastName"
                   auto-complete="off"></el-input>
@@ -45,7 +45,7 @@
             <el-col :span="12">
               <el-form-item
                 prop="phone"
-                label="Callphone">
+                label="Whatsapp">
                 <el-input
                   v-model="registerForm.phone"
                   auto-complete="off"></el-input>
@@ -54,7 +54,7 @@
           </el-row>
           <el-row :gutter="0" class="form-row-item">
             <el-form-item
-              label="Password"
+              label="Senha"
               prop="password">
               <el-input
                 type="password"
@@ -70,15 +70,15 @@
                 type="primary"
                 :loading="isLoading"
                 @click="submitForm('registerForm')">
-                Register
+                Confirmar
               </el-button>
             </el-form-item>
           </el-row>
         </el-form>
       </el-card>
       <footer class="auth-layout_footer">
-        Already have a register?
-        <router-link :to="{ name: 'login'}">Login</router-link>
+        Já possui um cadastro?
+        <router-link :to="{ name: 'auth-login'}">Fazer login</router-link>
       </footer>
     </div>
 
@@ -100,20 +100,20 @@
       },
       rules: {
         email: [
-          { required: true, message: 'Please insert your email', trigger: 'blur' },
-          { type: 'email', message: 'Please insert is valid email!', trigger: 'blur,change' }
+          { required: true, message: 'Por favor insira o seu email!', trigger: 'blur' },
+          { type: 'email', message: 'Por favor insira um email válido!', trigger: 'blur, change' }
         ],
         password: [
-          { required: true, message: 'Please insert your password!', trigger: 'blur' }
+          { required: true, message: 'Por favor insira a sua senha!', trigger: 'blur' }
         ],
         firstName: [
-          { required: true, message: 'Please insert your First name!', trigger: 'blur' }
+          { required: true, message: 'Por favor insira o primeiro nome!', trigger: 'blur' }
         ],
         lastName: [
-          { required: true, message: 'Please insert your Last name!', trigger: 'blur' }
+          { required: true, message: 'Por favor insira o sobrenome!', trigger: 'blur' }
         ],
         phone: [
-          { required: true, message: 'Please insert your callphone!', trigger: 'blur' }
+          { required: true, message: 'Por favor insira o celular!', trigger: 'blur' }
         ]
       }
     }),
@@ -143,18 +143,18 @@
                 this.isLoading = false
         			} else {
                 this.$notify.success({
-                  title: 'Success',
-                  message: 'User create success!',
+                  title: 'Sucesso',
+                  message: 'Usuário criado!',
                   offset: 100
                 })
                 this.isLoading = true
-                this.$router.push({ name: 'login' })
+                this.$router.push({ name: 'auth-login' })
         			}
         		})
           } else {
             this.$notify.error({
-              title: 'Sorry!!!',
-              message: 'All fields are required',
+              title: 'Desculpe',
+              message: 'Todos os campos são necessários!',
               offset: 100
             })
             this.isLoading = false

@@ -4,7 +4,7 @@
       <el-card class="auth-layout_card card">
         <header class="auth-layout_card-header card-header">
           <img class="logo" src="/images/icon.svg" width="60" height="60" alt="Logo" />
-          <h2>Reset Password</h2>
+          <h2>Nova senha</h2>
         </header>
         <span class="divider"></span>
         <el-form 
@@ -12,7 +12,7 @@
           :rules="rules" 
           ref="resetPasswordForm"
           class="auth-layout_card-content card-content">
-          <el-form-item label="New Password" prop="new_password">
+          <el-form-item label="Digite sua nova senha" prop="new_password">
             <el-input type="password" v-model="resetPasswordForm.new_password" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item>
@@ -22,7 +22,7 @@
               type="primary" 
               @click="submitForm('resetPasswordForm')"
               :loading="isLoading">
-              Confirm
+              Confirmar
             </el-button>
           </el-form-item>
         </el-form>
@@ -41,7 +41,7 @@
       },
       rules: {
         new_password: [
-          { required: true, message: 'Please insert your new password', trigger: 'blur' }
+          { required: true, message: 'Por favor insira a sua nova senha!', trigger: 'blur' }
         ]
       }
     }),
@@ -56,24 +56,24 @@
             Accounts.resetPassword(token, new_password, (err) => {
               if (err) {
                 this.$notify.error({
-                  title: 'Sorry!',
+                  title: 'Desculpe',
                   message: err.reason,
                   offset: 100
                 })
                 this.isLoading = false
               } else {
                 this.$notify.success({
-                  title: 'Success',
-                  message: 'Password reset with success!',
+                  title: 'Sucesso',
+                  message: 'Sua senha foi resetada',
                   offset: 100
                 })
-                this.$router.push({name: 'login'})
+                this.$router.push({name: 'auth-login'})
               }
             })
           } else {
             this.$notify.error({
-              title: 'Sorry!',
-              message: 'All fields are required',
+              title: 'Desculpe',
+              message: 'Todos os campos são necessários',
               offset: 100
             })
             this.isLoading = false

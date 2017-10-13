@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 
-const name = 'Lets'
+const name = 'Realtime'
 const email = '<dev@alexandesigner.com.br>'
 const from = `${name} ${email}`
 const emailTemplates = Accounts.emailTemplates

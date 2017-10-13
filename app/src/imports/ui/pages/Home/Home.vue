@@ -14,10 +14,10 @@
     name: 'app-home',
     methods: {
       goRegister () {
-        this.$router.push({name:'register'})
+        this.$router.push({name:'auth-register'})
       },
       goLogin () {
-        this.$router.push({name:'login'})
+        this.$router.push({name:'auth-login'})
       }
     }
   }

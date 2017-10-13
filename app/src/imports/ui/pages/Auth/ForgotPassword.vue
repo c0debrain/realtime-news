@@ -4,7 +4,7 @@
       <el-card class="auth-layout_card card">
         <header class="auth-layout_card-header card-header">
           <img class="logo" src="/images/icon.svg" width="60" height="60" alt="Logo" />
-          <h2>Forgot password</h2>
+          <h2>Recuperar senha</h2>
         </header>
         <span class="divider"></span>
         <el-form
@@ -26,13 +26,13 @@
               type="primary"
               @click.prevent="submitForm('forgotPasswordForm')"
               :loading="isLoading">
-              Send
+              Enviar
             </el-button>
           </el-form-item>
         </el-form>
       </el-card>
       <footer class="auth-layout_footer">
-        <router-link :to="{ name: 'login'}">Back</router-link>
+        <router-link :to="{ name: 'auth-login'}">Voltar</router-link>
       </footer>
     </div>
   </div>
@@ -48,8 +48,8 @@
       },
       rules: {
         email: [
-          { required: true, message: 'Please insert your email!', trigger: 'blur' },
-          { type: 'email', message: 'Please insert is valid email!', trigger: 'blur,change' }
+          { required: true, message: 'Por favor insira o seu email!', trigger: 'blur' },
+          { type: 'email', message: 'Por favor insira um email válido!', trigger: 'blur, change' }
         ]
       }
     }),
@@ -70,17 +70,17 @@
                 this.isLoading = false
               } else {
                 this.$notify.success({
-                  title: 'Success',
-                  message: 'A link has been sent to your email!',
+                  title: 'Sucesso',
+                  message: 'Enviamos um link com as instruções no seu email!',
                   offset: 100
                 })
-                this.$router.push({name: 'login'})
+                this.$router.push({name: 'auth-login'})
               }
             })
           } else {
             this.$notify.error({
-              title: 'Sorry!',
-              message: 'Email field is required',
+              title: 'Desculpe',
+              message: 'O Email é obrigatório',
               offset: 100
             })
             this.isLoading = false

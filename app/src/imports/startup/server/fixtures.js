@@ -1,17 +1,17 @@
 import seeder from '@cleverbeagle/seeder'
 import { Meteor } from 'meteor/meteor'
-import Documents from '../../api/Documents/documents'
+import { Events } from '../../api/Events/events'
 
-const documentsSeed = userId => ({
-  collection: Documents,
+const eventsSeed = userId => ({
+  collection: Events,
   environments: ['development', 'staging'],
   noLimit: true,
   modelCount: 5,
   model(dataIndex) {
     return {
       owner: userId,
-      title: `Document #${dataIndex + 1}`,
-      body: `This is the body of document #${dataIndex + 1}`
+      title: `Evento #${dataIndex + 1}`,
+      body: `This is the body of event #${dataIndex + 1}`
     }
   }
 });
@@ -21,7 +21,7 @@ seeder(Meteor.users, {
   noLimit: true,
   data: [{
     email: 'admin@admin.com',
-    password: 'password',
+    password: 'senha',
     profile: {
       firstName: 'Johny',
       lastName: 'Be Good',
@@ -29,15 +29,15 @@ seeder(Meteor.users, {
     },
     roles: ['admin'],
     data(userId) {
-      return documentsSeed(userId)
+      return eventsSeed(userId)
     }
   }],
   modelCount: 5,
   model(index, faker) {
     const userCount = index + 1
     return {
-      email: `user+${userCount}@test.com`,
-      password: 'password',
+      email: `usuario+${userCount}@test.com`,
+      password: 'senha',
       profile: {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
@@ -45,7 +45,7 @@ seeder(Meteor.users, {
       },
       roles: ['user'],
       data(userId) {
-        return documentsSeed(userId)
+        return eventsSeed(userId)
       }
     }
   }
