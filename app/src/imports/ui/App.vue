@@ -3,4 +3,4 @@
 <script src="App.js">
 </script>
 
-<style lang="stylus" src="style/main.styl" />
+<style lang="stylus" src="stylesheets/main.styl" />

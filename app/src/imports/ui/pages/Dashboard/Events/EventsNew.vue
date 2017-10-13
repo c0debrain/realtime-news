@@ -4,24 +4,24 @@
     <div class="dashboard-content_main">
       <header class="dashboard-content_main-header is-back-button">
         <back-button></back-button>
-        <h2 class="title">Documents Edit <small>- {{ newDocument.title }}</small></h2>
+        <h2 class="title">Novo Evento <small>- {{ newEvent.title }}</small></h2>
       </header> 
       <div class="dashboard-content_main-form">
         <el-card class="box-card">
-          <el-form :model="newDocument" :rules="rules" ref="newDocument" class="form-model">
+          <el-form :model="newEvent" :rules="rules" ref="newEvent" class="form-model">
             <el-row :gutter="10">
               <el-col :lg="24">
                 <el-form-item prop="title">
-                  <el-input placeholder="Please input document title" size="large" v-model="newDocument.title" auto-complete="off"></el-input>
+                  <el-input placeholder="Por favor insira um título" size="large" v-model="newEvent.title" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
                 <el-form-item prop="body">
-                  <el-input placeholder="Please input document body" size="large" v-model="newDocument.body" auto-complete="off"></el-input>
+                  <el-input placeholder="Por favor insira uma descrição" size="large" v-model="newEvent.body" auto-complete="off"></el-input>
                 </el-form-item>
               </el-col>
               <el-col :lg="24">
-                <el-button size="large" type="success" @click="handleSubmitForm('newDocument')" class="submit-button full-width">Save</el-button>
+                <el-button size="large" type="success" @click="handleSubmitForm('newEvent')" class="submit-button full-width">Confirmar</el-button>
               </el-col>
             </el-row>
           </el-form>
@@ -36,19 +36,19 @@
   import DashboardContent from '../../../components/Dashboard/DashboardContent.vue';
   import BackButton from '../../../components/BackButton/BackButton.vue';
   export default {
-    name: 'dashboard-documents-new',
+    name: 'dashboard-events-new',
     data: () => ({
       users: [],
-      newDocument: {
+      newEvent: {
         title: '',
         body: ''
       },
       rules: {
         title: [
-          { required: true, message: 'Please input title', trigger: 'blur' },
+          { required: true, message: 'Por favor insira um título', trigger: 'blur' },
         ],
         body: [
-          { required: true, message: 'Please input body text', trigger: 'blur' },
+          { required: true, message: 'Por favor insira uma descrição', trigger: 'blur' },
         ]
       },
     }),
@@ -65,9 +65,9 @@
         this.$refs[formName].validate((valid) => {
           try {
             if (valid) {
-              let dataForm = this.newDocument
+              let dataForm = this.newEvent
               let user = this.users[0]
-              Meteor.callPromise('Documents.methods.insert', {
+              Meteor.callPromise('Events.methods.insert', {
                 createdAt: new Date(),
                 owner: user._id,
                 title: dataForm.title,
@@ -75,10 +75,10 @@
               })
               this.$message({
                 type: 'info',
-                message: `Document created with success!`
+                message: `Evento criado com sucesso!`
               })
               this.$refs[formName].resetFields()
-              this.$router.push({ name: 'dashboard-documents' })
+              this.$router.push({ name: 'dashboard-events' })
             }
           } catch (error) {
             this.$message({

@@ -4,7 +4,7 @@
       <el-card class="auth-layout_card card">
         <header class="auth-layout_card-header card-header">
           <img class="logo" src="/images/icon.svg" width="60" height="60" alt="Logo" />
-          <h2>Login</h2>
+          <h2>Acessar conta</h2>
         </header>
         <span class="divider"></span>
         <el-form
@@ -22,7 +22,7 @@
           </el-form-item>
           <el-form-item
             prop="password"
-            label="Password">
+            label="Senha">
             <el-input
               type="password"
               v-model="loginForm.password"
@@ -36,17 +36,17 @@
               type="primary"
               @click="submitForm('loginForm')"
               :loading="isLoading">
-              Enter
+              Entrar
             </el-button>
           </el-form-item>
           <el-form-item class="item-forgot-password">
-            <router-link :to="{ name: 'forgot-password'}">Forgot password?</router-link>
+            <router-link :to="{ name: 'auth-forgot-password'}">Esqueceu a senha?</router-link>
           </el-form-item>
         </el-form>
       </el-card>
       <footer class="auth-layout_footer">
-        No account yet?
-        <router-link :to="{ name: 'register'}">Register</router-link>
+        Não tem cadastro?
+        <router-link :to="{ name: 'auth-register'}">Cadastrar</router-link>
       </footer>
     </div>
   </div>
@@ -63,11 +63,11 @@
       },
       rules: {
         email: [
-          { required: true, message: 'Please insert your email!', trigger: 'blur' },
-          { type: 'email', message: 'Please insert is valid email!', trigger: 'blur,change' }
+          { required: true, message: 'Por favor insira o seu email!', trigger: 'blur' },
+          { type: 'email', message: 'Por favor insira um email válido!', trigger: 'blur, change' }
         ],
         password: [
-          { required: true, message: 'Please insert your password!', trigger: 'blur' },
+          { required: true, message: 'Por favor insira a sua senha!', trigger: 'blur' },
         ],
       }
     }),
@@ -82,24 +82,24 @@
             Meteor.loginWithPassword(email, password, (err) => {
   						if (err) {
                 this.$notify.error({
-                  title: 'Sorry',
+                  title: 'Desculpe',
                   message: err.reason,
                   offset: 100
                 })
                 this.isLoading = false
   						} else {
-                this.$router.push({ name: 'app-dashboard' })
+                this.$router.push({ name: 'dashboard-timeline' })
                 this.$notify.success({
-                  title: 'Welcome',
-                  message: `Good to see you!`,
+                  title: 'Bem vindo',
+                  message: `Que bom te ver novamente!`,
                   offset: 100
                 })
   						}
   					})
           } else {
             this.$notify.error({
-              title: 'Sorry!!!',
-              message: 'All fields are required',
+              title: 'Desculpe',
+              message: 'Todos os campos são necessários',
               offset: 100
             })
             this.isLoading = false

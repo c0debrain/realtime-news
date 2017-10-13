@@ -1,33 +1,33 @@
 <template>
-  <div class="documents-details">
+  <div class="events-details">
     <header>
     	<back-button></back-button>
-    	<h2>Document Details</h2>
+    	<h2>Detalhes do Evento</h2>
     </header>
-    <h4>{{ documents[0].title }}</h4>
-    <p>{{ documents[0].body }}</p>
+    <h4>{{ events[0].title }}</h4>
+    <p>{{ events[0].body }}</p>
   </div>
 </template>
 
 <script>
 	import BackButton from '../../../ui/components/BackButton/BackButton.vue'
-	import Documents from '../../../api/Documents/documents'
+	import Events from '../../../api/Events/events'
   export default {
-    name: 'app-documents-details',
+    name: 'app-event-details',
     data: () => ({
     	users: [],
-    	documents: []
+    	events: []
     }),
     meteor: {
       subscribe: {
-        'documents': [],
+        'events': [],
       },
       users() {
         return Meteor.users.find({})
       },
-      documents() {
-        return Documents.find({
-          _id: this.$route.params.documentId
+      events() {
+        return Events.find({
+          _id: this.$route.params.eventId
         });
       },
     },
@@ -38,7 +38,7 @@
 </script>
 
 <style lang="stylus" scoped>
-.documents-details
+.events-details
   text-align left
   padding 20px 60px
   header

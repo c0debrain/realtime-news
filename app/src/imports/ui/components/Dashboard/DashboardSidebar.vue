@@ -2,33 +2,33 @@
 	<aside class="dashboard-sidebar">
 	  <div class="sidebar-content">
 	    <header class="sidebar-content_header">
-	    	<router-link class="logo" :to="{name: 'dashboard'}" exact>
-	    		<img src="/images/logo.svg" width="60" height="60" alt="" />
+	    	<router-link class="logo" :to="{name: 'dashboard-timeline'}" exact>
+	    		<img src="/images/icon.svg" width="80" height="80" alt="" />
 	    	</router-link>
 	    </header>
 	    <div class="sidebar-content_nav">
-    		<router-link class="nav-item" :to="{name: 'dashboard'}" exact>
+    		<router-link class="nav-item" :to="{name: 'dashboard-timeline'}" exact>
 	    		Dashboard
 	    		<svg class="icon">
-            <use xlink:href="#arrow-right" />
+            <use xlink:href="/icons.svg#arrow-right" />>
           </svg>
 	    	</router-link>
 	    	<router-link class="nav-item" :to="{name: 'dashboard-users'}">
-	    		Users
+	    		Usuários
 	    		<svg class="icon">
-            <use xlink:href="#arrow-right" />
+            <use xlink:href="/icons.svg#arrow-right" />
           </svg>
 	    	</router-link>
-	    	<router-link class="nav-item" :to="{name: 'dashboard-documents'}">
-	    		Documents
+	    	<router-link class="nav-item" :to="{name: 'dashboard-events'}">
+	    		Eventos
 	    		<svg class="icon">
-            <use xlink:href="#arrow-right" />
+            <use xlink:href="/icons.svg#arrow-right" />
           </svg>
 	    	</router-link>
 	    	<div class="nav-logout" @click="logout">
-	    		Logout
+	    		Desconectar
 	    		<svg class="icon">
-            <use xlink:href="#arrow-right" />
+            <use xlink:href="/icons.svg#arrow-right" />
           </svg>
 	    	</div>
 	    </div>
@@ -42,7 +42,7 @@
 		methods: {
 			logout () {
         Meteor.logout()
-        this.$router.push({ name: 'login' })
+        this.$router.push({ name: 'auth-login' })
 			}
 		}
 	}

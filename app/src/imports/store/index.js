@@ -1,7 +1,7 @@
-import documents from './documents'
+import events from './events'
 
 export default {
   modules: {
-    documents
+    events
   },
 }

@@ -10,4 +10,4 @@
   }
 </script>
 
-<style lang="stylus" src="../style/pages/auth.styl" />
+<style lang="stylus" src="../stylesheets/pages/auth.styl" />
